@@ -1,4 +1,4 @@
-code = file.readLines("/usr/AoC 2023/day4/code.txt")
+puzzle = file.readLines("/usr/AoC 2023/day4/puzzle.txt")
 sample = file.readLines("/usr/AoC 2023/day4/sample.txt")
 
 import "listUtil"
@@ -18,9 +18,9 @@ getNum = function(s)
 	end for
 	return {"winNum": winNum, "myNum": myNum}
 end function
-calculate = function(code)
+calculate = function(puzzle)
 	res = 0
-	for i in code
+	for i in puzzle
 		myWinNum = []
 		num = getNum(i)
 		for j in num.myNum
@@ -31,5 +31,5 @@ calculate = function(code)
 	return res
 end function
 
-ans = calculate(code)
+ans = calculate(puzzle)
 print ans

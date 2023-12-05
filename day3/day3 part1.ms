@@ -1,4 +1,4 @@
-code = file.readLines("/usr/AoC 2023/day3/code.txt")
+puzzle = file.readLines("/usr/AoC 2023/day3/puzzle.txt")
 sample = file.readLines("/usr/AoC 2023/day3/sample.txt")
 
 getNumber = function(s)
@@ -22,12 +22,12 @@ getNumber = function(s)
 	if tmp then res.push tmp
 	return [res, index]
 end function
-getAdjacentNumber = function(code)
-	len1 = code[0].len
-	len2 = code.len
+getAdjacentNumber = function(puzzle)
+	len1 = puzzle[0].len
+	len2 = puzzle.len
 	res2 = []
-	for i in code.indexes
-		n = getNumber(code[i])
+	for i in puzzle.indexes
+		n = getNumber(puzzle[i])
 		for j in n[0].indexes
 			res = []
 			on = n[1][j] - 1
@@ -39,7 +39,7 @@ getAdjacentNumber = function(code)
 			end for
 			for k in res
 				if 0 <= k[0] < len2 and 0 <= k[1] < len1 then
-					tmp = code[k[0]][k[1]]
+					tmp = puzzle[k[0]][k[1]]
 					if not(tmp == "." or "0" <= tmp <= "9") then
 						res2.push n[0][j].val
 						break
@@ -51,5 +51,5 @@ getAdjacentNumber = function(code)
 	return res2
 end function
 
-ans = getAdjacentNumber(code)
+ans = getAdjacentNumber(puzzle)
 print ans.sum

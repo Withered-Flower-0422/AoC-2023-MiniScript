@@ -1,4 +1,4 @@
-code = file.readLines("/usr/AoC 2023/day1/code.txt")
+puzzle = file.readLines("/usr/AoC 2023/day1/puzzle.txt")
 sample1 = file.readLines("/usr/AoC 2023/day1/sample1.txt")
 sample2 = file.readLines("/usr/AoC 2023/day1/sample2.txt")
 
@@ -9,13 +9,13 @@ getNumber = function(s)
 	end for
 	return [res[0], res[-1]].join("").val
 end function
-calculate = function(code)
+calculate = function(puzzle)
 	res = 0
-	for i in code
+	for i in puzzle
 		res += getNumber(i)
 	end for
 	return res
 end function
 
-ans = calculate(code)
+ans = calculate(puzzle)
 print ans

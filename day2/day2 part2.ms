@@ -1,4 +1,4 @@
-code = file.readLines("/usr/AoC 2023/day2/code.txt")
+puzzle = file.readLines("/usr/AoC 2023/day2/puzzle.txt")
 sample = file.readLines("/usr/AoC 2023/day2/sample.txt")
 
 removeSpace = function(s)
@@ -59,5 +59,5 @@ calculate = function(l)
 	return res
 end function
 
-ans = calculate(code)
+ans = calculate(puzzle)
 print ans
