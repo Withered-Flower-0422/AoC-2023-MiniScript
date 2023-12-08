@@ -1,5 +1,6 @@
 // I failed to tackle with this part on my own,
-// so I followed a video on [youtube](https://www.youtube.com/watch?v=NmxHw_bHhGM)
+// so I followed a video on youtube
+// (https://www.youtube.com/watch?v=NmxHw_bHhGM)
 // to finish this part.
 
 puzzle = file.readLines("/usr/AoC 2023/day5/puzzle.txt")
