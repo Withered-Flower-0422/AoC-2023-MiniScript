@@ -48,30 +48,12 @@ calculate = function(puzzle)
 		direction = [tmp[1], tmp[0]][tmp[0].plus(direction)!=[0, 0]]
 		roads.push cur[:]
 	end while
-	cnt = 0
-	for i in puzzle.indexes
-		tmp1 = []
-		for j in roads
-			if j[0] == i then tmp1.push j[1]
-		end for
-		for j in puzzle[i].indexes
-			if not tmp1.contains(j) then
-				times = 0; tmp = []
-				for k in range(0, j-1, 1)
-					if tmp1.contains(k) and pipes[puzzle[i][k]].contains(north) then tmp.push north
-					if tmp1.contains(k) and pipes[puzzle[i][k]].contains(south) then tmp.push south
-					if tmp.contains(north) and tmp.contains(south) then
-						times += 1
-						tmp = []
-					end if
-					if tmp.contains(north) and tmp.counts[north] == 2 then tmp = []
-					if tmp.contains(south) and tmp.counts[south] == 2 then tmp = []
-				end for
-				if times % 2 then cnt += 1
-			end if
-		end for
+	A = 0; B = 0
+	for i in roads.indexes
+		A += roads[i-1][0] * roads[i][1]
+		B += roads[i-1][1] * roads[i][0]
 	end for
-	return cnt
+	return (abs(A-B)-roads.len) / 2 + 1
 end function
 
 ans = calculate(puzzle)
