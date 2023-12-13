@@ -62,4 +62,4 @@ end function
 
 ans = calculate(puzzle)
 print ans
-// for part 1, ans = ans = calculate(puzzle, 1)
+// for part 1, ans = calculate(puzzle, 1)
