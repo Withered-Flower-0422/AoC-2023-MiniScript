@@ -39,7 +39,7 @@ calculate = function(puzzle)
 	end for
 	for i in puzzle[0].indexes
 		start.push [0, i] + d
-		start.push [height-11, i] + u
+		start.push [height-1, i] + u
 	end for
 	for i in start
 		max = mathUtil.max(max, calc(i, puzzle))
