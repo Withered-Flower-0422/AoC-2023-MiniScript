@@ -19,8 +19,8 @@ calculate = function(puzzle)
 	///////////////////////////////////////////////////
 	//A = 0; B = 0                                   //
 	//for i in apex.indexes                          //
-	//A += apex[i-1][0] * apex[i][1]                 //
-	//B += apex[i-1][1] * apex[i][0]                 //
+	//	A += apex[i-1][0] * apex[i][1]           //
+	//	B += apex[i-1][1] * apex[i][0]           //
 	//end for                                        //
 	//return (abs(A - B) + length) / 2 + 1           //
 	///////////////////////////////////////////////////
@@ -31,14 +31,14 @@ calculate = function(puzzle)
 	// my answer being 5 smaller than the correct answer.
 	// So I used the code below to avoid the loss of accuracy.
 	
-	resA = []; resB = []
+	A = []; B = []
 	for i in apex.indexes
-		resA.push apex[i-1][0] * apex[i][1]
-		resB.push apex[i-1][1] * apex[i][0]
+		A.push apex[i-1][0] * apex[i][1]
+		B.push apex[i-1][1] * apex[i][0]
 	end for
-	resA.sort; resB.sort; res = 0
-	for i in resA.indexes
-		res += resA[i] - resB[i]
+	A.sort; B.sort; res = 0
+	for i in A.indexes
+		res += A[i] - B[i]
 	end for
 	return (abs(res) + length) / 2 + 1
 end function
