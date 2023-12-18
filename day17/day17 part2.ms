@@ -11,3 +11,6 @@ end function
 
 for i in puzzle.indexes; puzzle[i] = puzzle[i].split("").applied(@val); end for
 for i in sample.indexes; sample[i] = sample[i].split("").applied(@val); end for
+
+// Sorry, but I cannot figure out this puzzle for now.
+// Maybe I'll tackle with this one in the near future.
