@@ -163,7 +163,10 @@ end function
 list.blockRotateCW = function(self)
 	src = self[:]
 	src.padToUniform
-	for destRow in range(0, src.len-1)
+	srcCols = src[0].len
+	while srcCols > self.len; self.push null; end while
+	while srcCols < self.len; self.pop; end while
+	for destRow in self.indexes
 		if src[0] isa string then
 			s = ""
 			for srcRow in range(src.len-1)
@@ -184,16 +187,19 @@ end function
 list.blockRotateCCW = function(self)
 	src = self[:]
 	src.padToUniform
-	for destRow in range(0, src.len-1)
+	srcCols = src[0].len
+	while srcCols > self.len; self.push null; end while
+	while srcCols < self.len; self.pop; end while
+	for destRow in self.indexes
 		if src[0] isa string then
 			s = ""
 			for srcRow in range(0, src.len-1)
-				s = s + src[srcRow][src.len - 1 - destRow]
+				s = s + src[srcRow][srcCols - 1 - destRow]
 			end for
 		else
 			s = []
 			for srcRow in range(0, src.len-1)
-				s.push src[srcRow][src.len - 1 - destRow]
+				s.push src[srcRow][srcCols - 1 - destRow]
 			end for
 		end if
 		self[destRow] = s

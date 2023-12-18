@@ -11,7 +11,12 @@
 //		list.apply1		// same, but with an argument
 import "listUtil"
 
-// accessors so you can use pos.x as a synonym for pos[0], etc.
+// Accessors so you can use pos.x as a synonym for pos[0], etc.
+// Note that you can only use these to READ the values; do NOT
+// use them to assign new values!  You must assign to v[0], v[1], etc.
+// (Technically `v.anything = whatever` will always update v[0],
+// because MiniScript takes the `val` of whatever's to the right of
+// the dot to find the numeric index, and that will always be 0.)
 list.x = function; return self[0]; end function
 list.y = function; return self[1]; end function
 list.z = function; return self[2]; end function

@@ -53,6 +53,10 @@ heuristic2DDistance = function(xyList1, xyList2)
 	return sqrt(a^2 + b^2)
 end function
 
+// ...Unless you can only move orthogonally; then use this one.
+manhattanDistance = function(xyList1, xyList2)
+    return abs(xyList2[0] - xyList1[0]) + abs(xyList2[1] - xyList1[1])
+end function
 
 // findPath: a least-cost or best-first search (depending on whether
 // you have implemented Search.heuristic).  Guaranteed to find the
@@ -86,7 +90,8 @@ Search.findPath = function(startState, endState)
 			print "FOUND IT!"
 			break	// success!		
 		end if
-//	print "checking " + current
+		//print "checking " + current
+		gfx.setPixel current[0], current[1], color.silver	// HACK
 		
 		currentActualCost = actualCost[current]
 		
