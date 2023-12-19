@@ -25,7 +25,6 @@ count = function(workflows, ranges, name = "in")
 		return product
 	end if
 	rules = workflows[name][:-1]; fallback = workflows[name][-1]
-	//print rules; print fallback
 	total = 0; do = 1
 	for i in rules
 		tmp = i.split(":")
